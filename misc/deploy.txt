@@ -1,0 +1,1 @@
+Copy-Item  C:\Users\Bepomin\source\repos\churchsearch\Release\churchsearch.dll -Destination 'C:\var\web\churchsearch\cgi-bin\' -ToSession $session

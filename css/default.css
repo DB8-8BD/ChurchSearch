@@ -1,0 +1,72 @@
+﻿/*  Author: Ryan Beckett
+    © 2018
+*/
+.bottom_left
+{
+	text-align:right;
+	background-image:url("../images/BottomLeft.png");
+	background-position:top right;
+	background-repeat:no-repeat;
+	margin-left:0px;
+}
+.bottom_row
+{
+	text-align:center;
+	background-image:url("../images/Bottom.png");
+	background-position:top center;
+	background-repeat:repeat-x;
+}
+.bottom_right
+{
+	text-align:left;
+	background-image:url("../images/BottomRight.png");
+	background-position:top left;
+	background-repeat:no-repeat;
+}
+.left_cell
+{
+	background-image:url("../images/Left.png");
+	background-position:right;
+	background-repeat:repeat-y;
+}
+.right_cell
+{
+	background-image:url("../images/Right.png");
+	background-repeat:repeat-y;
+}
+.top_left
+{
+	text-align:right;
+	background-image:url("../images/TopLeft.png");
+	background-position:bottom right;
+	background-repeat:no-repeat;
+	margin-left:0px;
+}
+.top_row
+{
+	text-align:center;
+	background-image:url("../images/Top.png");
+	background-position:bottom center;
+	background-repeat:repeat-x;
+}
+.top_right
+{
+	text-align:left;
+	background-image:url("../images/TopRight.png");
+	background-position:bottom left;
+	background-repeat:no-repeat;
+}
+.Left {
+    background-image: url("../images/Left.png");
+    background-position: right;
+    background-repeat: repeat-y;
+    height: 29px;
+    top: 13px;
+}
+
+.Right {
+    background-image: url("../images/Right.png");
+    background-repeat: repeat-y;
+    height: 29px;
+    top: 13px;
+}

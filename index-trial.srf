@@ -1,0 +1,231 @@
+﻿<html>
+{{handler cgi-bin\ChurchSearch.dll/Default}}
+<head>
+	<title>{{title}}</title>
+	<script language="javascript">
+	//function Init()
+	//{
+	//	var menuRowItems = document.getElementById("menu").rows[0].cells;
+ //       var menuRowCnt = menuRowItems.length;
+ //       for (var i = 0; i < menuRowCnt; i++)
+ //       {
+ //           menuRowItems[i].children[0].rows[2].style.position = 'absolute';
+ //           menuRowItems[i].children[0].rows[2].style.posTop = menuRowItems[i].children[0].rows[1].offsetTop + menuRowItems[i].children[0].rows[1].offsetHeight;
+ //           var newHeight = menuRowItems[i].children[0].rows[0].offsetHeight + menuRowItems[i].children[0].rows[1].offsetHeight + menuRowItems[i].children[0].rows[2].offsetHeight;
+ //           menuRowItems[i].children[0].rows[0].style.height = newHeight;
+ //           menuRowItems[i].children[0].rows[1].style.height = newHeight;
+ //           menuRowItems[i].children[0].rows[2].style.height = newHeight;
+ //       } style="position:absolute;height:55px;"
+	//}
+	{{Selector}}
+	
+	</script>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+    {{CSKeywords}}
+</head>
+<body onload="Init()">
+<form action="index.srf" method="post" name="sel" id="sel">
+	<table align="center" class="tblMenu" cellpadding="0" cellspacing="0" id="menu">
+		<tr>{{if bProvince}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<select name="Province" onchange="SelectProvince()">
+							{{while HasMoreProvinces}}
+								{{Province}}
+							{{endwhile}}
+							</select>&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>{{endif}}{{if bRegion}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<select name="Region" onchange="SelectRegion()">
+							{{while HasMoreRegions}}
+								{{Region}}
+							{{endwhile}}
+							</select>&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>{{endif}}{{if bCity}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<select name="City" onchange="SelectCity()">
+							{{while HasMoreCities}}
+								{{City}}
+							{{endwhile}}
+							</select>&nbsp;
+						</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>{{endif}}{{if bDenomination}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu" ID="Table2">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<select name="Denomination" onchange="SelectDenomination()" ID="Select1">
+							{{while HasMoreDenoms}}
+								{{Denomination}}
+							{{endwhile}}
+							</select>&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>{{endif}}{{if bPerPage}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row"><a alt="Choose how many churches you want displayed per page">
+							<select name="Pp" {{OneTimeInit}}>
+								{{PerPage}}
+							</select></a>&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>{{endif}}
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<input alt="Enter the Church Name here" id="txtBox" name="ChurchName" type="text" size="10">&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row">
+							<input alt="Submit your search parameters" type="submit" value="Search">&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+			<td align="center" class="clsMenuItem" valign="top">
+				<table align="center" cellpadding="0" cellspacing="0" class="subMenu">
+					<tr valign="bottom">
+						<td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="top_row">&nbsp;</td>
+						<td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr class="rowMenuText">
+						<td class="Left">&nbsp;</td>
+						<td align="center" class="center_row"  valign="middle">&nbsp;
+							<font size="5"><a alt="ChurchSearch Help Page" href="help.htm">?</a></font>&nbsp;</td>
+						<td class="Right">&nbsp;</td>
+					</tr>
+					<tr valign="top">
+						<td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td class="bottom_row">&nbsp;</td>
+						<td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</form>
+{{if bImg}}
+<center><img src="images/{{Img}}" alt="{{ImgAlt}}" class="clsMap" usemap="#{{ImgMap}}map"></center>
+{{endif}}
+<table align="center" cellspacing="0" cellpadding="3" class="churches" id="tbl">
+{{Status}}
+{{while HasMoreChurches}}
+	<tr class="chRow">{{Church}}</tr>
+{{endwhile}}
+</table>
+{{if bDetails}}
+{{Alternatives}}
+{{else}}
+<br>
+<table align="center" class="tblScroll" id="RowScroll" cellspacing="0" cellpadding="0">
+<tr>{{Rowscroll}}</tr></table>
+{{include /images/maps.txt}}
+{{endif}}
+{{Redirect}}
+</body>
+</html>

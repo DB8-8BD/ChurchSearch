@@ -1,0 +1,26 @@
+if (!m_strProvince.IsEmpty())
+										{
+											CAtlStringA strImgProvince(strBaseImgDir);
+											strImgProvince.AppendFormat("%s.gif", m_strProvince);
+											PushFile(strImgProvince, strImgGifGetHeaders);
+										}
+//CAtlStringA strEtag;
+		//int nEtagFound = -1;
+		//nEtagFound = m_Headers.strHeader.Find("etag");
+		//if (-1 != nEtagFound)
+		//{
+		//	int nCRLFFound = -1;
+		//	nCRLFFound = m_Headers.strHeader.Find("\r\n", nEtagFound);
+		//	strEtag.Append(m_Headers.strHeader.Mid(nEtagFound, nCRLFFound - nEtagFound));
+		//	
+		//}
+		
+SYSTEMTIME st = { 0 };
+							if (UTIL::DbTimeStampToSystemTime(m_ProvRegCityChurches.m_Modified, st))//myOLETIME.GetAsSystemTime(st))
+							{
+								FILETIME ft;
+								SystemTimeToFileTime(&st, &ft);
+								CFileTime myFT(ft);
+								CFileTime myUTCFT(myFT.LocalToUTC());
+								Sleep(0);
+							}

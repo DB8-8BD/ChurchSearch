@@ -1,0 +1,270 @@
+//intercept regular calls to retrieve caches, we are overriding here to provide 2 additional functionalities
+				//1. HTTP 304 (Not modified)
+				//2. HTTP 226 (Delta Range)
+				//both functionalities will only work if the page is fully cached already by ATL Server
+				CAtlList<CAtlStringA> liEtags;
+				CAtlStringA strIfNoneMatchHeader;
+				if (VCUE::GetServerVariable(pRequestInfo->pServerContext, "HTTP_IF_NONE_MATCH", strIfNoneMatchHeader))
+				{
+					int iTokenPos = 0;
+					CAtlStringA strToken = strIfNoneMatchHeader.Tokenize(",", iTokenPos);
+					while (!strToken.IsEmpty())
+					{
+						liEtags.AddTail(VCUE::StripQuotes(strToken));
+						strToken = strIfNoneMatchHeader.Tokenize(",", iTokenPos);
+					}
+					if (liEtags.IsEmpty())//no multiple etags
+					{
+						liEtags.AddTail(VCUE::StripQuotes(strIfNoneMatchHeader));
+					}
+				}
+				CAtlList<CAtlStringA> liAcceptIMs;
+				CAtlStringA strAcceptIMHeader;
+				if (VCUE::GetServerVariable(pRequestInfo->pServerContext, "HTTP_A-IM", strAcceptIMHeader))
+				{
+					int iTokenPos = 0;
+					CAtlStringA strToken = strAcceptIMHeader.Tokenize(",", iTokenPos);
+					while (!strToken.IsEmpty())
+					{
+						liAcceptIMs.AddTail(VCUE::StripQuotes(strToken));
+						strToken = strAcceptIMHeader.Tokenize(",", iTokenPos);
+					}
+					if (liAcceptIMs.IsEmpty())//no multiple etags
+					{
+						liAcceptIMs.AddTail(VCUE::StripQuotes(strAcceptIMHeader));
+					}
+				}
+
+
+
+				//if (0 == strToken.CompareNoCase("diffe"))//we can only handle diff algo
+				//else
+				{
+				CStencil *pStencil = NULL;
+					HCACHEITEM hStencil = NULL;
+					m_StencilCache.LookupStencil(szFileName, &hStencil);
+					if (hStencil)
+					{
+						m_StencilCache.GetStencil(hStencil, (void **)&pStencil);
+						CFileTime cftCurr;
+						CFileTime cftLastChecked;
+						cftCurr = CFileTime::GetCurrentTime();
+						pStencil->GetLastChecked(&cftLastChecked);
+						CFileTimeSpan span(ATL_STENCIL_CHECK_TIMEOUT * CFileTime::Millisecond);
+						if (cftLastChecked + span < cftCurr)
+						{
+							CComPtr<IStencilCacheControl> spCacheCtrl;
+							m_StencilCache.QueryInterface(__uuidof(IStencilCacheControl), reinterpret_cast<void**>(&spCacheCtrl));
+							if (spCacheCtrl)
+							{
+								CFileTime cftLastModified;
+								pStencil->GetLastModified(&cftLastModified);
+								if (cftLastModified != 0)
+								{
+									WIN32_FILE_ATTRIBUTE_DATA fad;
+									pStencil->SetLastChecked(&cftCurr);
+									BOOL bRet = GetFileAttributesExA(szFileName, GetFileExInfoStandard, &fad);
+									if ((bRet && cftLastModified < fad.ftLastWriteTime) || !bRet)
+									{
+										spCacheCtrl->RemoveStencil(hStencil);
+										pStencil = NULL;
+										hStencil = NULL;
+									}
+								}
+							}
+						}
+					}
+					else
+					{
+						m_PageCache.ReleaseFile(hEntry);
+						*pbAllowCaching = TRUE;
+						return FALSE;
+					}
+					/*if (!liEtags.IsEmpty())//also means the user wishes to retrieve an old cached response
+					{
+					POSITION myPos = NULL;
+					myPos = liEtags.GetHeadPosition();
+					do {
+					CAtlStringA strEtag;
+					CAtlString strFileNameOut;
+					strEtag.Append(liEtags.GetNext(myPos));
+					if (!strEtag.IsEmpty())
+					{
+					if (0 == strEtag.Compare(pInfo->strEtag))
+					{
+					bool bHttp2 = false;
+					CAtlStringA strProtocol;
+					if (VCUE::GetServerVariable(pRequestInfo->pServerContext, "SERVER_PROTOCOL", strProtocol))
+					{
+					if (0 == strProtocol.CompareNoCase("HTTP/2.0"))
+					bHttp2 = true;
+					else
+					bHttp2 = false;
+					}
+					CAutoPtr<CHttpErrorResponse> spErrorResponse(new CHttpErrorResponse(((w3piRequest*)pRequestInfo->pUserData)->requestId, ((w3piRequest*)pRequestInfo->pUserData)->connectionId,
+					m_hRequestQueue, 304, "", bHttp2, false, false, m_bDisableKeepAlive));
+					if (spErrorResponse != 0)
+					spErrorResponse->Execute(m_spThreadPoolService);
+					m_PageCache.ReleaseFile(hEntry);
+					return TRUE;
+					}
+					else
+					{
+					m_FileHistoryService.ResolveOldFile(strFile, strEtag.GetString(), (LPCTSTR*)strFileNameOut.GetBuffer());
+					}
+					}
+
+					} while (myPos != NULL);
+					}*/
+					
+					
+/*COleDateTime dtt(cftLastModified);
+					VCUE::COleDateTimeToHttpDate(dtt);
+					_tprintf(_T("getLastModified: %s"), CA2T(VCUE::COleDateTimeToHttpDate(dtt)).m_szBuffer);*/
+					// Resource based stencils have a last modified filetime of 0
+/*COleDateTime dtt(cftLastModified);
+						_tprintf(_T("getLastModified: %s"), CA2T(VCUE::COleDateTimeToHttpDate(dtt)).m_szBuffer);*/
+/*COleDateTime dft(fad.ftLastWriteTime);
+						_tprintf(_T("file att. LastModified: %s"), CA2T(VCUE::COleDateTimeToHttpDate(dft)).m_szBuffer);*/
+						//_tprintf(CA2T(szFileName));
+/*char szETag[21 + 1];
+							Checked::ui64toa_s(cftLastModified.GetTime(), szETag, 22, 10);
+							CAtlStringA strEtag;
+							strEtag.Append(CAtlStringA(szETag).TrimRight('0'));
+							CHAR szFilePath[MAX_PATH];
+							CAtlStringA strFilePath2;
+							m_PageCache.GetFile(hStencil, (LPSTR*)strFilePath2.GetBuffer(), NULL);
+							m_FileHistoryService.RegisterFile(strEtag.GetString(), CA2T(strFilePath2));*/
+							
+							
+					/*cacheservercontext*/		
+CAtlStringA strRetain;
+			    int nCacheControlFound = -1;//, nPrevCRLF = 0;
+				nCacheControlFound = m_Headers.strHeader.Find("Cache-Control:");
+				if (-1 != nCacheControlFound)
+				{
+					int nCRLFFound = -1;
+					nCRLFFound = m_Headers.strHeader.Find("\r\n", nCacheControlFound);
+					if (-1 != nCRLFFound)
+					{
+						CAtlStringA strCacheControlHeader(m_Headers.strHeader.Mid(nCacheControlFound, nCRLFFound - nCacheControlFound));
+						if (!strCacheControlHeader.IsEmpty())
+						{
+							iRetain = strCacheControlHeader.Find("retain");
+						}
+					}
+				}
+				CAtlStringA strEtag;
+				int nEtagFound = -1;
+				nEtagFound = m_Headers.strHeader.Find("ETag:");
+				if (-1 != nEtagFound)
+				{
+					int nCRLFFound = -1;
+					nCRLFFound = m_Headers.strHeader.Find("\r\n", nEtagFound);
+					strEtag.Append(m_Headers.strHeader.Mid(nEtagFound, nCRLFFound - nEtagFound));
+				}
+				else
+				{
+					if (iRetain >= 0)//if user has specified any retain value, we must generate etags
+					{
+						FILETIME ftWrite;
+						memset(&ftWrite, 0, sizeof(ftWrite));
+						GetFileTime(m_cacheFile, 0, 0, &ftWrite);
+						CFileTime myTm(ftWrite);
+						char myBuf[21 + 1];
+						Checked::ui64toa_s(myTm.GetTime(), myBuf, 22, 10);
+						strEtag.Append(CAtlStringA(myBuf).TrimRight('0'));
+						m_Headers.strEtag = strEtag;//keep this for now (unused though)
+						m_Headers.strHeader.AppendFormat("ETag: \"%s\"\r\n", strEtag);
+					}
+				}
+				
+			addfile
+			
+			if (iRetain >= 0)//retain found means user wishes to use differential history
+				{
+					CAtlString strPathInfo(CA2T(m_szFullUrl).m_szBuffer);
+					int iQuestionMarkFound = strPathInfo.Find(_T('?')) + 1;//question marks in filenames/URL's aren't allowed, offset by one
+					if (0 < iQuestionMarkFound)
+					{
+						CAtlString strFixedPath(AssemblePathAndCreateDirs(strPathInfo.Left(iQuestionMarkFound)));
+						strFixedPath.Append(strPathInfo.Mid(iQuestionMarkFound));//append query string, now the filename will look similar to the cache entry, excep the question mark is replaced by underscore
+						m_spFileHistorySvc->RegisterFile(strEtag.GetString(), strFixedPath.GetString(), CA2T(strFileName).m_szBuffer);
+					}
+				}
+				
+protected:
+		inline bool CreateDirIfNotExists(LPCTSTR szPath)
+		{
+			// See if directory exists.
+			if (GetFileAttributes(szPath) == 0xffffffff) {
+				// See why call failed      
+				DWORD dwErr = GetLastError();
+				if (dwErr == ERROR_PATH_NOT_FOUND
+					|| dwErr == ERROR_FILE_NOT_FOUND) {
+					// Wasn't there, create the directory
+					if (0 != CreateDirectory(szPath, NULL))
+						return true;
+					else
+						return false;
+				}
+				else
+					return false;  // Dir created but unaccessible
+			}
+			else
+				return true;       // Indicate directory already exists
+		}
+		CAtlString AssemblePathAndCreateDirs(LPCTSTR szPath, LPCTSTR szBasePath = NULL)
+		{
+			CAtlString strBasePath;
+			TCHAR szTempPath[_MAX_PATH];
+			const size_t BufferCharacters = sizeof(szTempPath) / sizeof(szTempPath[0]);
+			DWORD dwCharacters = GetTempPath(BufferCharacters, szTempPath);
+			if (NULL == szBasePath)
+			{
+				strBasePath.Append(szTempPath);
+			}
+			else
+			{
+				strBasePath = szBasePath;
+			}
+			strBasePath.TrimRight(_T("\\"));
+			CreateDirIfNotExists(strBasePath);
+			int iTokenPos = strBasePath.GetLength();
+			CAtlString strPath(szPath);
+			strPath.Replace(_T("/"), _T("\\"));
+			CAtlString strTokenPath(strBasePath);
+			strTokenPath.Append(strPath);
+			int iPrevTokenPos = 0;
+			CAtlString strToken = strTokenPath.Tokenize(_T("\\"), iTokenPos);
+			CAtlString strTempPath(strBasePath);
+			while (!strToken.IsEmpty())
+			{
+				strTempPath.AppendFormat(_T("\\%s"), strToken);
+				CreateDirIfNotExists(strTempPath);
+				strToken = strTokenPath.Tokenize(_T("\\"), iTokenPos);
+				if ((-1 != strToken.Find(c_tAtlSRFExtension)) || (-1 != strToken.Find(c_tAtlDLLExtension)))
+				{
+					break;
+				}
+			}
+			return strPath;
+		}
+		
+		CComPtr<IFileHistoryService> m_spFileHistorySvc;
+		
+		, static_cast<IFileHistoryService*>(&m_FileHistoryService)
+		
+		/*HTTP_CODE LoadStaticFile(__in LPCSTR szFileName, __out AtlServerRequest *pRequestInfo)
+	{
+		HCACHEITEM hStaticFile = NULL;
+		pRequestInfo->pHandler = NULL;
+		pRequestInfo->hInstDll = NULL;
+		m_StaticFileCache.LookupFile(szFileName, &hStaticFile);
+		if (hStaticFile)
+		{
+			CHAR szFilePath[MAX_PATH];
+			CPageCachePeer::PeerInfo *pInfo;
+			m_StaticFileCache.GetFile(hStaticFile, szFilePath, (void **)&pInfo);
+		}
+	}*/

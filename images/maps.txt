@@ -1,0 +1,57 @@
+<map name="canadamap">
+<area shape="poly" coords="8,176,42,192,80,205,67,254,67,261,75,270,76,278,86,295,87,306,39,298,35,300,32,300,21,287,21,285,14,278,15,272,19,269,19,248,4,247,3,238,5,232,11,234,16,232,25,223,19,213,19,185,7,185,8,176" alt="BC" href="index.srf?Province=BC">
+<area shape="poly" coords="80,205,68,254,68,262,76,270,77,277,87,294,87,307,115,311,124,214,80,205" alt="AB" href="index.srf?Province=AB">
+<area shape="poly" coords="125,213,117,311,164,312,161,214,125,213" alt="SK" href="index.srf?Province=SK">
+<area shape="poly" coords="163,214,165,311,199,311,199,273,222,235,203,223,193,211,163,214" alt="MB" href="index.srf?Province=MB">
+<area shape="poly" coords="200,311,238,314,248,307,254,307,261,314,266,315,269,322,275,326,290,326,292,332,291,353,287,358,292,361,294,355,306,351,307,348,314,346,314,340,308,340,313,334,322,333,323,328,328,326,336,315,325,317,305,314,296,306,286,273,281,273,270,262,265,243,241,242,223,236,200,273,200,311" alt="ON" href="index.srf?Province=ON">
+<area shape="poly" coords="287,273,297,307,305,313,317,314,326,317,335,313,337,315,355,309,355,291,357,285,358,273,370,271,379,263,390,251,394,237,395,225,376,225,366,231,362,231,362,240,346,236,334,224,333,216,337,213,351,213,350,208,340,197,339,192,335,193,322,177,326,188,320,174,306,186,304,174,286,170,264,173,261,181,272,196,267,209,286,225,279,238,277,245,288,263,287,273" alt="QC" href="index.srf?Province=QC">
+<area shape="poly" coords="357,307,380,307,380,296,390,286,390,280,382,279,379,270,370,271,358,275,357,307" alt="NB" href="index.srf?Province=NB">
+<area shape="poly" coords="391,286,390,292,383,303,395,308,397,295,444,295,444,285,403,285,411,277,414,267,407,261,402,261,404,275,393,281,391,281,391,286" alt="NS" href="index.srf?Province=NS">
+<area shape="poly" coords="398,268,398,277,390,279,383,276,383,268,398,268" alt="PE" href="index.srf?Province=PE">
+<area shape="poly" coords="404,254,411,257,426,245,423,249,431,252,436,239,439,242,447,243,441,231,429,214,411,214,399,205,394,199,381,198,381,194,367,199,354,194,353,189,322,168,321,176,328,177,335,191,352,212,335,216,339,230,362,237,362,231,378,223,400,224,403,232,404,254" alt="NL" href="index.srf?Province=NL">
+<area shape="poly" coords="46,93,0,166,8,177,40,190,68,199,67,191,60,188,51,126,55,107,46,93" alt="YT" href="index.srf?Province=YT">
+<area shape="poly" coords="57,109,61,186,68,190,69,200,124,212,164,213,196,208,210,185,258,186,262,171,291,166,320,163,305,140,305,116,232,84,219,3,204,2,180,24,118,60,99,97,85,105,57,109" alt="NT" href="index.srf?Province=NT"></map>
+<map name="ABmap">
+<area shape="poly" alt="Edmonton" coords="145,214,145,199,71,199,71,214" href="index.srf?City=Edmonton&amp;Region=Edmonton&amp;Province=AB">
+<area shape="poly" alt="Calgary" coords="122,285,122,297,195,297,195,285" href="index.srf?City=Calgary&amp;Region=Calgary&amp;Province=AB">
+<area shape="poly" alt="Rural Alberta" coords="16,3,173,3,198,360,113,360,92,340,86,311,0,220,16,3" href="index.srf?Region=Rural%20Alberta&amp;Province=AB"></map>
+<map name="BCmap">
+<area shape="poly" alt="BC Interior" coords="1,3,127,25,238,26,244,200,332,295,344,341,235,343,214,304,168,305,157,298,146,297,121,273,124,260,120,261,120,239,115,233,101,224,88,176,96,161,96,127,74,112,40,21,30,22,9,37" href="index.srf?Region=BC%20Interior&amp;Province=BC">
+<area shape="poly" alt="Lower Mainland" coords="234,343,214,305,168,306,166,311,174,319,181,320,182,328,193,331,196,343,233,343" href="index.srf?Region=Lower%20Mainland&amp;Province=BC">
+<area shape="poly" alt="Vancouver Island" coords="118,279,151,312,162,317,180,334,187,347,186,358,166,349,143,324,136,321,134,313,126,309,124,302,114,300,109,282" href="index.srf?Region=Vancouver%20Island&amp;Province=BC">
+<area shape="poly" alt="Queen Charlotte Islands" coords="69,181,50,176,46,186,51,206,54,219,73,245,73,234,65,218,65,208" href="index.srf?Region=Queen%20Charlotte%20Island&amp;Province=BC"></map>
+<map name="MBmap">
+<area shape="rect" alt="Winnipeg" coords="26,314,102,337" href="index.srf?City=Winnipeg&amp;Province=MB">
+<area shape="poly" alt="Rural Manitoba" coords="0,3,120,3,120,30,130,39,148,39,159,62,169,93,203,81,225,92,126,236,135,361,0,361,0,3" href="index.srf?Region=Rural%20Manitoba&amp;Province=MB"></map>
+<map name="NBmap">
+<area shape="poly" coords="0,0,413,2,413,360,0,360" alt="New Brunswick" href="index.srf?Province=NB">
+<area shape="poly" coords="104,250,200,250,200,280,104,280" alt="Fredricton Area" href="index.srf?City=Fredricton&amp;Province=NB">
+<area shape="poly" coords="260,220,345,220,345,250,260,250" alt="Moncton Area" href="index.srf?City=Moncton&amp;Province=NB">
+<area shape="poly" coords="160,300,260,300,260,330,160,330" alt="Saint John" href="index.srf?City=Saint John&amp;Province=NB"></map>
+<map name="NLmap">
+<area shape="poly" alt="Labrador" coords="0,0,0,35,69,148,65,155,50,155,45,152,28,152,7,175,7,205,34,236,50,245,86,249,221,206,243,169,226,133,181,119,186,110,128,106,14,0,0,0" href="index.srf?Region=Labrador&amp;Province=NL">
+<area shape="poly" alt="Newfoundland" coords="248,175,226,202,219,237,218,322,235,322,296,297,290,318,306,313,321,304,348,301,359,286,359,256,321,222,254,217,254,175,248,175" href="index.srf?Region=Newfoundland&amp;Province=NL"></map>
+<map name="NSmap">
+<area shape="poly" alt="Cape Breton" coords="413,2,383,48,351,109,359,142,376,155,416,148,462,125,477,109,472,82,431,76,436,17,433,2,413,2" href="index.srf?Region=Cape%20Breton&amp;Province=NS">
+<area shape="poly" alt="Nova Scotia" coords="160,109,103,161,102,171,93,195,40,222,1,263,4,290,7,321,18,335,39,354,59,356,87,340,104,328,113,311,144,280,157,279,199,262,224,241,259,233,347,197,392,175,347,134,323,120,298,141,217,123,169,102" href="index.srf?Region=Nova%20Scotia&amp;Province=NS"></map>
+<map name="ONmap">
+<area shape="poly" alt="Northern Ontario" coords="99,5,9,91,1,186,17,196,26,194,52,211,64,207,86,214,98,206,108,194,121,198,133,200,141,219,153,220,161,249,171,263,205,274,212,266,231,271,234,278,271,253,252,246,242,234,231,129,217,129,189,90,185,44,144,40,115,23" href="index.srf?Region=Northern%20Ontario&amp;Province=ON">
+<area shape="poly" alt="Eastern Ontario" coords="271,253,301,291,329,267,327,256,272,253" href="index.srf?Region=Eastern%20Ontario&amp;Province=ON">
+<area shape="poly" alt="Central Ontario" coords="272,256,234,282,233,292,238,305,252,299,260,305,292,303,300,296" href="index.srf?Region=Central%20Ontario&amp;Province=ON">
+<area shape="poly" alt="Southern Ontario" coords="245,318,232,293,207,278,210,303,207,322,174,326,174,336,197,336,198,348,191,348,188,356,201,358,239,342,261,332,258,324,245,318" href="index.srf?Region=Southern%20Ontario&amp;Province=ON">
+<area shape="poly" alt="Toronto" coords="240,307,251,300,261,310,291,312,290,323,244,321,240,307" href="index.srf?Region=Toronto&amp;Province=ON"></map>
+<map name="PEmap>
+<area shape="poly" alt="Prince Edward Island" coords="79,2,0,101,8,134,60,127,57,188,115,198,112,209,223,267,241,232,289,263,262,284,327,317,381,300,366,287,361,252,394,236,410,211,454,195,479,164,439,158,303,177,240,177,146,135,129,161,103,128,75,85,83,1,79,2" href="index.srf?Province=PE"></map>
+<map name="QCmap">
+<area shape="poly" alt="Northern Quebec" coords="9,330,24,333,75,333,83,325,92,325,113,305,126,304,146,282,166,269,167,261,174,254,241,249,260,243,274,220,292,211,291,200,209,212,208,199,198,199,196,220,178,210,167,190,162,182,167,162,203,162,208,146,195,123,196,103,188,100,191,84,176,45,157,86,133,76,129,36,86,10,49,3,39,38,31,79,48,127,16,159,17,220,8,220" href="index.srf?Region=Northern%20Quebec&amp;Province=QC">
+<area shape="poly" alt="Hull Area" coords="1,335,73,335,62,346,1,350,1,335" href="index.srf?Region=Hull&amp;Province=QC">
+<area shape="poly" alt="Montreal Area" coords="1,350,1,362,82,362,82,350,92,340,92,327,83,327,62,350,1,350" href="index.srf?Region=Montreal&amp;Province=QC">
+<area shape="poly" alt="Sherbrooke Area" coords="83,360,83,351,93,340,177,340,177,360,83,360" href="churchRegion.srf?Region=Sherbrooke&amp;Province=QC">
+<area shape="poly" alt="Quebec City Area" coords="94,340,94,327,113,308,125,308,125,315,133,325,200,325,200,340,94,340" href="index.srf?Region=Quebec&amp;Province=QC">
+<area shape="poly" alt="Gaspe" coords="127,315,134,321,154,310,195,300,243,272,205,255,181,267,139,297,127,315" href="index.srf?Region=Gaspe&amp;Province=QC"></map>
+<map name="SKmap">
+<area shape="rect" alt="Saskatoon" coords="74,239,149,255" href="index.srf?City=Saskatoon&amp;Region=Saskatoon&amp;Province=SK">
+<area shape="poly" alt="Regina" coords="92,298,92,317,149,317,149,298" href="index.srf?City=Regina&amp;Region=Regina&amp;Province=SK">
+<area shape="poly" alt="Rural Saskatchewan" coords="15,4,151,4,195,361,0,369,15,4" href="index.srf?Region=Rural%20Saskatchewan&amp;Province=SK"></map>
+<map name="YTmap">
+<area shape="poly" alt="Yukon" coords="187,3,1,224,21,250,109,313,226,360,226,341,206,311,208,52,187,3" href="index.srf?Province=YT"></map>

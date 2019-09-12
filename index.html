@@ -1,0 +1,285 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link href="css/default.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <table align="center" cellpadding="0" cellspacing="0" id="menu">
+        <tr>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <select name="Province" onchange="SelectProvince()">
+                                <option class="clsProvince" value="AB">Alberta</option>
+                                <option class="clsProvince" selected=selected value="BC">British Columbia</option>
+                                <option class="clsProvince">Bermuda</option>
+                                <option class="clsProvince" value="MB">Manitoba</option>
+                                <option class="clsProvince" value="NB">New Brunswick</option>
+                                <option class="clsProvince" value="NL">Newfoundland</option>
+                                <option class="clsProvince" value="NS">Nova Scotia</option>
+                                <option class="clsProvince" value="NT">Northwest Territories</option>
+                                <option class="clsProvince" value="NU">Nunavut</option>
+                                <option class="clsProvince" value="ON">Ontario</option>
+                                <option class="clsProvince" value="PA">Pennsylvania</option>
+                                <option class="clsProvince" value="PE">Prince Edward Island</option>
+                                <option class="clsProvince" value="QC">Quebec</option>
+                                <option class="clsProvince" value="SK">Saskatchewan</option>
+                                <option class="clsProvince" value="YT"></option>
+                            </select>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <select name="Region" onchange="SelectRegion()">
+                                <option class="clsRegion">BC Interior</option>
+                                <option class="clsRegion" selected=selected>Lower Mainland</option>
+                                <option class="clsRegion">Queen Charlotte Island</option>
+                                <option class="clsRegion">Vancouver Island</option>
+                            </select>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <select name="City" onchange="SelectCity()">
+                                <option class="clsCity">Abbotsford</option>
+                                <option class="clsCity">Agassiz</option>
+                                <option class="clsCity">Aldergrove</option>
+                                <option class="clsCity">Bowen Island</option>
+                                <option class="clsCity">Bradner</option>
+                                <option class="clsCity">Burnaby</option>
+                                <option class="clsCity">Chilliwack</option>
+                                <option class="clsCity">Clearbrook</option>
+                                <option class="clsCity" selected=selected>Coquitlam</option>
+                                <option class="clsCity">Crescent Beach/Surrey</option>
+                                <option class="clsCity">Delta</option>
+                                <option class="clsCity">Deroche</option>
+                                <option class="clsCity">Dewdney</option>
+                                <option class="clsCity">Fort Langley</option>
+                                <option class="clsCity">Gibsons</option>
+                                <option class="clsCity">Halfmoon Bay</option>
+                                <option class="clsCity">Harrison Hot Springs</option>
+                                <option class="clsCity">Hope</option>
+                                <option class="clsCity">Lake Errock</option>
+                                <option class="clsCity">Langley</option>
+                                <option class="clsCity">Lions Bay</option>
+                                <option class="clsCity">Madeira Park</option>
+                                <option class="clsCity">Maple Ridge</option>
+                                <option class="clsCity">Matsqui</option>
+                                <option class="clsCity">Mission</option>
+                                <option class="clsCity">Mount Currie</option>
+                                <option class="clsCity">Nanaimo</option>
+                                <option class="clsCity">New Westminster</option>
+                                <option class="clsCity">North Vancouver</option>
+                                <option class="clsCity">Pemberton</option>
+                                <option class="clsCity">Pitt Meadows</option>
+                                <option class="clsCity">Port Coquitlam</option>
+                                <option class="clsCity">Port Moody</option>
+                                <option class="clsCity">Powell River</option>
+                                <option class="clsCity">Richmond</option>
+                                <option class="clsCity">Rosedale</option>
+                                <option class="clsCity">Sardis</option>
+                                <option class="clsCity">Sechelt</option>
+                                <option class="clsCity">Squamish</option>
+                                <option class="clsCity">Surrey</option>
+                                <option class="clsCity">Vancouver</option>
+                                <option class="clsCity">Vernon</option>
+                                <option class="clsCity">West Vancouver</option>
+                                <option class="clsCity">Whistler</option>
+                                <option class="clsCity">White Rock</option>
+                                <option class="clsCity">Whonnock</option>
+                                <option class="clsCity">Yarrow</option>
+                            </select>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0" ID="Table2">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <select name="Denomination" onchange="SelectDenomination()" ID="Select1">
+                                <option class="clsDenomination">Anglican Churches of Canada</option>
+                                <option class="clsDenomination">Baha'I Faith Churches</option>
+                                <option class="clsDenomination">Baptist General Conference of Canada</option>
+                                <option class="clsDenomination">Canadian Assemblies of God</option>
+                                <option class="clsDenomination">Canadian Baptists of Western Canada</option>
+                                <option class="clsDenomination">Canadian Unitarian Council</option>
+                                <option class="clsDenomination">Christian and Missionary Alliance</option>
+                                <option class="clsDenomination">Christian Reformed Church in North America</option>
+                                <option class="clsDenomination">Church of Christ</option>
+                                <option class="clsDenomination">Church of the Latter-Day Saints</option>
+                                <option class="clsDenomination">Church of the Nazarene in Canada</option>
+                                <option class="clsDenomination">Evangelical Lutheran Church in Canada</option>
+                                <option class="clsDenomination">Evangelical Missionary Church of Canada</option>
+                                <option class="clsDenomination">Foursquare Gospel Church of Canada</option>
+                                <option class="clsDenomination">Mennonite Brethren Churches</option>
+                                <option class="clsDenomination">Others</option>
+                                <option class="clsDenomination">Pentecostal Assemblies of Canada</option>
+                                <option class="clsDenomination">Presbyterian Church in Canada</option>
+                                <option class="clsDenomination">Roman Catholic Church of Canada</option>
+                                <option class="clsDenomination">Seventh-day Adventist Church</option>
+                                <option class="clsDenomination">United Church of Canada</option>
+                                <option class="clsDenomination">Wesleyan Church</option>
+                            </select>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <a alt="Choose how many churches you want displayed per page">
+                                <select name="Pp">
+                                    <option class="clsOption">10</option>
+                                    <option class="clsOption">20</option>
+                                    <option class="clsOption" selected=selected>25</option>
+                                    <option class="clsOption">30</option>
+                                    <option class="clsOption">35</option>
+                                    <option class="clsOption">40</option>
+                                    <option class="clsOption">50</option>
+                                    <option class="clsOption">100</option>
+                                </select>
+                            </a>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <input alt="Enter the Church Name here" id="txtBox" name="ChurchName" type="text" size="10" />&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row">
+                            <input alt="Submit your search parameters" type="submit" value="Search" />&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+            <td align="center" valign="top">
+                <table align="center" cellpadding="0" cellspacing="0">
+                    <tr valign="bottom">
+                        <td class="top_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="top_row">&nbsp;</td>
+                        <td class="top_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="Left">&nbsp;</td>
+                        <td align="center" class="center_row" valign="middle">
+                            &nbsp;
+                            <font size="5"><a alt="ChurchSearch Help Page" href="help.htm">?</a></font>&nbsp;
+                        </td>
+                        <td class="Right">&nbsp;</td>
+                    </tr>
+                    <tr valign="top">
+                        <td class="bottom_left">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td class="bottom_row">&nbsp;</td>
+                        <td class="bottom_right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

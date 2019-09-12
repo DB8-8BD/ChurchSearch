@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dllmain.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="DBCommands.h" />
+    <ClInclude Include="efx.h" />
+    <ClInclude Include="util\Error.h" />
+    <ClInclude Include="util\UTIL_Time.h" />
+    <ClInclude Include="util\Validator.h" />
+    <ClInclude Include="util\UTIL_API.h" />
+    <ClInclude Include="util\UTIL_Conversion.h" />
+    <ClInclude Include="util\UTIL_MemoryCache.h" />
+    <ClInclude Include="util\UTIL_ServerContext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="misc\ShowMe.srf" />
+    <None Include="misc\start-remote-debugging.ps1" />
+    <None Include="index.srf" />
+    <None Include="sql\create-script.sql" />
+    <None Include="css\default.css" />
+    <None Include="js\init.js" />
+    <None Include="help.htm" />
+    <None Include="sql\BackupAndRestore.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="misc\ReadMe.txt" />
+    <Text Include="images\maps.txt" />
+  </ItemGroup>
+</Project>

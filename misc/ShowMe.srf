@@ -1,0 +1,15 @@
+{{handler C:\test\atlserver\showme.dll/Default}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>W3Gal ShowMe Sample</head>
+<body><form action="ShowMe.srf" method="get" id="sel">
+<select id="Place" name="Place">
+<option style="background-color:lightyellow;">First</option>
+    <option style="background-color:lightyellow;">Second</option>
+    <option style="background-color:lightyellow;">Third</option>
+</select>
+    <input type="submit" />
+    </form>
+    
+    <b>{{ShowMe}}</b></body>
+</html>
